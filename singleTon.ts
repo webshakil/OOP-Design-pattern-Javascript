@@ -1,3 +1,68 @@
+class Database{
+    private static instace:Database;
+
+    private constructor(){
+        console.log("Database connection established!");
+    }
+
+    public static getInstance():Database{
+        if(!Database.instace){
+            Database.instace = new Database();
+        }
+        return Database.instace;
+    }
+
+    public query(sql:string):void{
+        console.log(`Executing SQL: ${sql}`);
+    }
+}
+const db1 = Database.getInstance();
+const db2 = Database.getInstance();
+
+console.log("db1", db1);
+console.log("db2", db2)
+
+db1.query("SELECT * FROM users");
+
+console.log(db1 === db2);//true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // class Database {
 //     // A static property to hold the single instance of the Database class
 //     private static instance: Database;
