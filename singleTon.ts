@@ -1,31 +1,20 @@
-class Database{
-    private static instace:Database;
 
+class Database{
+    private static instance: Database;
     private constructor(){
         console.log("Database connection established!");
     }
-
     public static getInstance():Database{
-        if(!Database.instace){
-            Database.instace = new Database();
+        if(!Database.instance){
+            Database.instance = new Database();
         }
-        return Database.instace;
-    }
-
-    public query(sql:string):void{
-        console.log(`Executing SQL: ${sql}`);
-    }
+        return Database.instance;
+    }      
 }
+
 const db1 = Database.getInstance();
-const db2 = Database.getInstance();
-
-console.log("db1", db1);
-console.log("db2", db2)
-
-db1.query("SELECT * FROM users");
-
+const db2 = Database.getInstance(); 
 console.log(db1 === db2);//true
-
 
 
 
